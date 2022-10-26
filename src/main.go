@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+type human interface {
+	speak()
+}
+
 type person struct {
 	fname string
 	lname string
@@ -20,12 +24,15 @@ func (sa secreteAgent) speak() {
 	fmt.Println(sa.fname, sa.lname, `Says, "Shaken, not stirred."`)
 }
 
+func saySomething(h human) {
+	h.speak()
+}
+
 func main() {
 	p1 := person{
 		"miss",
 		"moneypenny",
 	}
-	p1.speak()
 
 	sal := secreteAgent{
 		person{
@@ -34,5 +41,7 @@ func main() {
 		},
 		true,
 	}
-	sal.speak()
+
+	saySomething(p1)
+	saySomething(sal)
 }
