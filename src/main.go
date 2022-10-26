@@ -7,23 +7,32 @@ type person struct {
 	lname string
 }
 
+type secreteAgent struct {
+	person
+	licenseToKill bool
+}
+
 func (p person) speak() {
 	fmt.Println(p.fname, p.lname, `Says, "Good morning, James"`)
 }
 
+func (sa secreteAgent) speak() {
+	fmt.Println(sa.fname, sa.lname, `Says, "Shaken, not stirred."`)
+}
+
 func main() {
-	xi := []int{2, 4, 6, 8}
-	fmt.Println(xi)
-
-	m := map[string]int{
-		"Todd": 45,
-		"Job":  42,
-	}
-	fmt.Println(m)
-
 	p1 := person{
 		"miss",
 		"moneypenny",
 	}
 	p1.speak()
+
+	sal := secreteAgent{
+		person{
+			"James",
+			"Bond",
+		},
+		true,
+	}
+	sal.speak()
 }
