@@ -1,3 +1,5 @@
+https://pkg.go.dev/std@go1.19.2
+
 ## Variables & Constants
 - var <변수명> <타입> = 값
 - := 으로도 사용할 수 있으나 지역변수를 선언할 때만 사용할 수 있다.
